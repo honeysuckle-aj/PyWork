@@ -22,6 +22,8 @@ def concatenate_pngs(png_folder,out_folder,width):
     height = width*(n-1)
     bg = Image.new(mode='RGBA',size=(width,height))
     i = 0
+    if not os.path.exists(out_folder):
+        os.mkdir(out_folder)
     for png in png_list:
         png = png.resize((width,width))
         bg.paste(png,(0,i*width))
